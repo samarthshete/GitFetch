@@ -6,18 +6,24 @@ import User from "../Components/User";
 import Repo from "../Components/Repo";
 import RepoStats from "../Components/RepoStats";
 import RepoContainer from "../Components/RepoContainer";
-
+import { useAppContext } from "../context/appContext";
  
+
 export default function Dashboard() {
-  
+  const { user } = useAppContext();
   return (
     <main>
       <Navbar></Navbar>
       <SearchBar></SearchBar>
-      <Info></Info>
-      <User></User>
-      <RepoStats></RepoStats>
-      <RepoContainer></RepoContainer>
+      {user && (
+        <>
+          <Info></Info>
+          <User></User>
+          <RepoStats></RepoStats>
+          <RepoContainer></RepoContainer>
+          
+        </>
+      )}
     </main>
   );
 }

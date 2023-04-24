@@ -1,10 +1,18 @@
-import React from 'react'
-import Wrapper from '../assets/wrapper/Navbar'
+import React from "react";
+import Wrapper from "../assets/wrapper/Navbar";
+import { useAppContext } from "../context/appContext";
 
 export default function Navbar() {
+  const { user } = useAppContext();
+
   return (
     <Wrapper>
-        <h4> Welcome</h4>
+      {user.name && (
+        <h4>
+          Welcome, <strong>{user.name.toUpperCase()}</strong>
+        </h4>
+      )}
+      <button>Logout</button>
     </Wrapper>
-  )
+  );
 }
