@@ -73,7 +73,7 @@ export default function RepoStats() {
         star: repo.stargazers_count,
       }))
     : [];
-  console.log(languageStar);
+  // console.log(languageStar);
 
   const starCounts = languageStar.reduce((acc, { language, star }) => {
     if (language) {
@@ -89,7 +89,7 @@ export default function RepoStats() {
 
   // Step 4: Sort the data by the number of stars
   StarData.sort((a, b) => b.stars - a.stars);
-  console.log(StarData);
+  // console.log(StarData);
   // Step 5: Get the top 5 languages
   const topStarLanguage = StarData.slice(0, 5);
   const starData = {
@@ -123,7 +123,7 @@ export default function RepoStats() {
         forks: repo.forks_count,
       }))
     : [];
-  console.log(languageFork);
+  // console.log(languageFork);
 
   const forkCounts = languageFork.reduce((acc, { language, forks }) => {
     if (language) {
@@ -132,7 +132,7 @@ export default function RepoStats() {
     return acc;
   }, {});
 
-  console.log(forkCounts);
+  // console.log(forkCounts);
 
   const topForkedLanguage = Object.entries(forkCounts)
     .map(([language, forks]) => ({ language, forks }))
@@ -167,12 +167,9 @@ export default function RepoStats() {
   return (
     <section className="section">
       <Wrapper className="section-center">
-        
-          <LanguageStats chartData={chartData} />
-          <MostStar data={starData}></MostStar>
-          <MostForked data={forkData}></MostForked>
-          
-        
+        <LanguageStats chartData={chartData} />
+        <MostStar data={starData}></MostStar>
+        <MostForked data={forkData}></MostForked>
       </Wrapper>
     </section>
   );

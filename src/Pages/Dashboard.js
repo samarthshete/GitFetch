@@ -5,6 +5,7 @@ import Info from "../Components/Info";
 import User from "../Components/User";
 import Repo from "../Components/Repo";
 import RepoStats from "../Components/RepoStats";
+import RepoContainer from "../Components/RepoContainer";
 
  
 export default function Dashboard() {
@@ -16,7 +17,7 @@ export default function Dashboard() {
       <Info></Info>
       <User></User>
       <RepoStats></RepoStats>
-      <Repo></Repo>
+      <RepoContainer></RepoContainer>
     </main>
   );
 }

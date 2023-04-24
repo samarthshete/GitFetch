@@ -1,4 +1,4 @@
-import { GET_USER , GET_FOLLOWERS, GET_REPO} from "./action";
+import { GET_USER , GET_FOLLOWERS, GET_REPO, } from "./action";
 
 
 

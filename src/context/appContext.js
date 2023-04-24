@@ -2,7 +2,7 @@ import React, { useEffect, useState, useReducer, useContext } from "react";
 import reducer from "../context/reducer";
 import axios from "axios";
 
-import { GET_USER, GET_REPO, GET_FOLLOWERS } from "./action";
+import { GET_USER, GET_REPO, GET_FOLLOWERS,  } from "./action";
 
 const initialState = {
   user: {
@@ -22,6 +22,9 @@ const initialState = {
   repos: [],
   followers: [],
   following: [],
+  mostForked : [],
+  mostStar: [],
+  topLanguage:[],
   isLoading: false,
 };
 const AppContext = React.createContext();
@@ -60,6 +63,7 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
+   
   useEffect(() => {
     getUser('samarthshete');
     getRepo('samarthshete')
@@ -71,7 +75,8 @@ const AppProvider = ({ children }) => {
         ...state,
         getUser,
         getRepo,
-        getFollowers
+        getFollowers,
+         
       }}
     >
       {children}
