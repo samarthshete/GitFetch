@@ -1,23 +1,22 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-    .card span {
+  .card span {
     font-size: 1rem;
-}
+  }
 
-
-.card input {
+  .card input {
     margin: 1rem 0;
-    padding: 0.8rem;
+    padding: 1rem;
     font-size: 1rem;
     font-family: inherit;
     display: block;
     border: 1px solid #ddd6fe;
     border-radius: 5px;
     width: 100%;
-}
+  }
 
-.card select {
+  .card select {
     margin: 1rem 0;
     padding: 0.8rem;
     font-size: 1rem;
@@ -27,10 +26,9 @@ const Wrapper = styled.div`
     border-radius: 5px;
     width: 100%;
     background: transparent;
-}
+  }
 
-
-.card .button {
+  .card .button {
     border: none;
     outline: none;
     background-color: #3b82f6;
@@ -40,16 +38,19 @@ const Wrapper = styled.div`
     color: white;
     cursor: pointer;
     display: block;
-}
+  }
 
-.card .button:hover {
-    background-color: #1D4ED8;
-}
+  .card .button:hover {
+    background-color: #1d4ed8;
+  }
 
-.card .butotn:disabled {
+  .card .butotn:disabled {
     opacity: 0.5;
-}
-
+  }
+  .card h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+  }
 `;
 
 export default Wrapper;

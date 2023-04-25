@@ -148,3 +148,21 @@ main {
   text-transform: capitalize;
   display: inline-block;
 }
+.alert {
+
+  padding: 25px 50px;
+  margin-top: 1rem;
+  border-color: transparent;
+  border-radius: 0.25rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.alert-danger {
+  color:  #842029;
+  background: #f8d7da;
+}
+.alert-success {
+  color: #0f5132;
+  background:  #d1e7dd;
+}

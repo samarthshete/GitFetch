@@ -6,6 +6,7 @@ export default function Onboarding() {
   return (
     <Wrapper>
       <div className="card">
+        <h1>hey there 👋</h1>
         <GithubForm></GithubForm>
       </div>
     </Wrapper>

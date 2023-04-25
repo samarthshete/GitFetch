@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   .main {
-    padding: 3rem 0;
+    padding: 2rem 2.5rem;
+  margin: 3rem auto;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+     
   }
   .title {
     margin: 0;
