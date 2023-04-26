@@ -17,34 +17,37 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function RepoStats() {
   const { repos } = useAppContext();
 
-  if (!repos) {
-    return <div>Loading...</div>;
-  }
-
-  const languages = repos ? repos.map((repo) => repo.language) : [];
-
-  const counts = languages.reduce((acc, lang) => {
-    if (lang) {
-      acc[lang] = (acc[lang] || 0) + 1;
+  // will get most popular languages used in a GitHub user's repositories.
+  const languages = repos.reduce((total, item) => {
+    const { language } = item;
+    if (!language) return total;
+    if (!total[language]) {
+      total[language] = 1;
+    } else {
+      total[language]++;
     }
-    return acc;
+    return total;
   }, {});
 
-  const data = Object.entries(counts).map(([lang, count]) => ({
+  console.log(languages);
+  // now Convert the counts object to an array as counts is an object
+  const data = Object.entries(languages).map(([lang, count]) => ({
     language: lang,
     count: count,
   }));
-
+  console.log(data);
+  // will sort the data array in descending order by count
   data.sort((a, b) => b.count - a.count);
 
-  // Step 5: Get the top 5 languages
+  // now Get the top 5 languages
   const topLanguages = data.slice(0, 5);
 
+  console.log(topLanguages);
   const chartData = {
     labels: topLanguages.map((language) => language.language),
     datasets: [
       {
-        label: "Repo Stats",
+        label: "Count",
         data: topLanguages.map((language) => language.count),
         backgroundColor: [
           "#0088FE",
@@ -117,32 +120,23 @@ export default function RepoStats() {
   };
 
   // most fork
-  const languageFork = repos
-    ? repos.map((repo) => ({
-        language: repo.language,
-        forks: repo.forks_count,
-      }))
-    : [];
-  // console.log(languageFork);
+let {forks} = repos.reduce(
+    (total, item) => {
+      const { forks, name } = item;
+      total.forks[forks] = { label: name, value: forks };
+      return total;
+    },
+    { forks: {} }
+  );
 
-  const forkCounts = languageFork.reduce((acc, { language, forks }) => {
-    if (language) {
-      acc[language] = (acc[language] || 0) + forks;
-    }
-    return acc;
-  }, {});
-
-  // console.log(forkCounts);
-
-  const topForkedLanguage = Object.entries(forkCounts)
-    .map(([language, forks]) => ({ language, forks }))
-    .sort((a, b) => b.forks - a.forks)
-    .slice(0, 5);
+  console.log(forks);
+  forks = Object.values(forks).slice(-5).reverse();
 
   const forkData = {
     datasets: [
       {
-        data: topForkedLanguage.map((item) => item.forks),
+        label: "Most Forked Repositories",
+        data: forks.map((item) => item.value),
         backgroundColor: [
           "#0088FE",
           "#00C49F",
@@ -161,7 +155,7 @@ export default function RepoStats() {
         borderWidth: 1,
       },
     ],
-    labels: topForkedLanguage.map((item) => item.language),
+    labels: forks.map((item) => item.label),
   };
 
   return (

@@ -2,7 +2,13 @@ import React, { useEffect, useState, useReducer, useContext } from "react";
 import reducer from "../context/reducer";
 import axios from "axios";
 
-import { GET_USER, GET_REPO, GET_FOLLOWERS, GET_USER_BEGIN, DISPLAY_ALERT, CLEAR_ALERT } from "./action";
+import {
+  GET_USER,
+  GET_REPO,
+  GET_FOLLOWERS,
+  GET_USER_BEGIN,
+  GET_USER_ERROR,
+} from "./action";
 
 const initialState = {
   user: {
@@ -33,29 +39,21 @@ const initialState = {
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  
-  const displayAlert = () => {
-    dispatch({ type: DISPLAY_ALERT });
-    clearAlert();
-  };
 
-  const clearAlert = () => {
-    setTimeout(() => {
-      dispatch({ type: CLEAR_ALERT });
-    }, 3000);
-  };
-  const getUser = async (username, alertText) => {
+  const getUser = async (username) => {
     dispatch({ type: GET_USER_BEGIN });
     try {
       const { data } = await axios.get(
         `https://api.github.com/users/${username}`
       );
 
-      dispatch({ type: GET_USER, payload: { data, alertText } });
+      dispatch({ type: GET_USER, payload: data });
     } catch (error) {
-      console.log(error);
+      dispatch({
+        type: GET_USER_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
     }
-    clearAlert();
   };
 
   const getRepo = async (username) => {
@@ -82,7 +80,7 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getUser({ username: "samarthshete", alertText: "User Fetched! Redirecting..." });
+    getUser("samarthshete");
     getRepo("samarthshete");
     getFollowers("samarthshete");
   }, []);
@@ -90,7 +88,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
-        displayAlert,
+
         getUser,
         getRepo,
         getFollowers,

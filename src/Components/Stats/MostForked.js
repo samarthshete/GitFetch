@@ -37,8 +37,10 @@ export default function MostForked({ data }) {
                     },
                   ],
                 },
-                legend: {
-                  display: false,
+                plugins: {
+                  legend: {
+                    display: false,
+                  },
                 },
               }}
             />

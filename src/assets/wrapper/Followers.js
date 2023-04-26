@@ -6,8 +6,8 @@ const Wrapper = styled.div`
   .followers {
     overflow: scroll;
     height: 260px;
-    display: flex;  
-    flex-direction: column;  
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem 1rem;
     padding: 1rem 2rem;
   }

@@ -131,6 +131,14 @@ p {
     width: 95vw;
   }
 }
+.loading-img {
+  width: 20rem;
+  height: 20rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+ 
 main {
   padding-bottom: 2rem;
 }
@@ -165,4 +173,16 @@ main {
 .alert-success {
   color: #0f5132;
   background:  #d1e7dd;
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid  #829ab1;
+  border-radius: 50%;
+  border-top-color: #2cb1bc;
+  animation: spinner 2s linear infinite;
+}
+.loading-center {
+  margin: 0 auto;
 }

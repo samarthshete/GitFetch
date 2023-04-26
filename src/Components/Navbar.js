@@ -12,7 +12,7 @@ export default function Navbar() {
           Welcome, <strong>{user.name.toUpperCase()}</strong>
         </h4>
       )}
-      <button>Logout</button>
+      
     </Wrapper>
   );
 }

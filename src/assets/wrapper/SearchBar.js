@@ -1,7 +1,16 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  position: relative;
+  display: grid;
   gap: 1rem 1.75rem;
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+    h3 {
+      padding: 0 0.5rem;
+    }
+  }
   .form-center {
     background: var(--clr-white);
     display: grid;
@@ -25,7 +34,13 @@ const Wrapper = styled.div`
     color: var(--clr-white);
     transition: var(--transition);
     cursor: pointer;
-     
+  }
+  @media (max-width: 800px) {
+    button,
+    input,
+    svg {
+      font-size: 0.85rem;
+    }
   }
   svg {
     color: var(--clr-grey-5);

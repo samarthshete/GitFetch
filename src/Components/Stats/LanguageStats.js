@@ -7,7 +7,7 @@ export default function LanguageStats({ chartData }) {
     <section className="section">
       <Wrapper className="section-center">
         <div className="statsDiv">
-          <h3> Language </h3>
+          <h3> Most Popular Language </h3>
           <div className="chartContainer">
             <Pie data={chartData} />
           </div>

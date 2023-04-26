@@ -31,6 +31,13 @@ export default function Info() {
       value: following,
       color: "purple",
     },
+    {
+      id: 4,
+      icon: <GoGist className="icon" />,
+      label: "Public Gist",
+      value: public_gists,
+      color: "purple",
+    },
   ];
   return (
     <Wrapper>

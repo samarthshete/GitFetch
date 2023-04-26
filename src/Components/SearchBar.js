@@ -4,13 +4,15 @@ import { MdSearch } from "react-icons/md";
 import { useAppContext } from "../context/appContext";
 
 export default function SearchBar() {
-  const { getUser } = useAppContext();
+  const { getUser, getRepo, getFollowers } = useAppContext();
   const [username, setUsername] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username) {
       getUser(username);
+      getRepo(username);
+      getFollowers(username)
     }
   };
 

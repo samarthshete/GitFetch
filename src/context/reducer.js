@@ -5,6 +5,7 @@ import {
   GET_USER_BEGIN,
   DISPLAY_ALERT,
   CLEAR_ALERT,
+  GET_USER_ERROR
 } from "./action";
 
 const reducer = (state, action) => {
@@ -40,7 +41,15 @@ const reducer = (state, action) => {
       alertText: action.payload.alertText,
     };
   }
-
+  if (action.type === GET_USER_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+    };
+  }
   if (action.type === GET_REPO) {
     return {
       ...state,
