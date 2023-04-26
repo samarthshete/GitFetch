@@ -10,7 +10,7 @@ GitHub User Dashboard is a React application that allows users to search for a G
 * View user's most starred repositories, most forked repositories, and top language.
 * Loading spinner displayed while data is being fetched from Github API.
 
-##Technologies Used
+## Technologies Used
 The following technologies were used to build this project:
 
 * React: A popular JavaScript library for building user interfaces.
