@@ -22,11 +22,11 @@ The following technologies were used to build this project:
 ## Installation
 To run the GitHub User Dashboard locally on your machine, follow these steps:
 
--  Clone the GitHub repository to your local machine.
--  Navigate to the project directory using a terminal or command prompt.
--  Install the dependencies by running the command npm install or yarn install.
--  Start the development server by running the command npm start or yarn start.
--  Open a web browser and go to http://localhost:3000 to access the application.
+1.  Clone the GitHub repository to your local machine.
+2.  Navigate to the project directory using a terminal or command prompt.
+3.  Install the dependencies by running the command npm install or yarn install.
+4.  Start the development server by running the command npm start or yarn start.
+5.  Open a web browser and go to http://localhost:3000 to access the application.
 
 ## Usage
 * Enter a GitHub username in the search bar to fetch and display the user's profile information, repositories, and followers.
