@@ -4,7 +4,9 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr auto;
   background: var(--clr-white);
-
+  h4 a {
+    color:black ;
+  }
   @media screen and (max-width: 1200px) {
     .github-repo-card {
       padding: 0.75rem;
